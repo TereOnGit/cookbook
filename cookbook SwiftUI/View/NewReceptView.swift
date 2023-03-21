@@ -30,18 +30,21 @@ struct NewReceptView: View {
                     Text("Název receptu:")
                     TextEditor(text: $name)
                         .foregroundColor(.gray)
+                        .frame(width: 200, height: 30, alignment: .leading)
                 }
                 
                 VStack(alignment: .leading) {
                     Text("Ingredience:")
                     TextEditor(text: $ingredients)
                         .foregroundColor(.gray)
+                        .frame(width: 200, height: 80, alignment: .leading)
                 }
                 
                 VStack(alignment: .leading) {
                     Text("Popis postupu:")
                     TextEditor(text: $process)
                         .foregroundColor(.gray)
+                        .frame(width: 200, height: 130, alignment: .leading)
                 }
                 
                 HStack {
@@ -70,7 +73,7 @@ struct NewReceptView: View {
                 
             }
             ._scrollable()
-            .disableAutocorrection(false)
+            .disableAutocorrection(true)
             
             Divider()
             
