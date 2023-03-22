@@ -19,6 +19,9 @@ struct NewReceptView: View {
     @State var isSoup = false
     @State var isMainDish = false
     
+    
+    @State private var selectedType = Recept.ReceptType.soup
+    
     var body: some View {
         VStack(){
             Text("Nový recept")
@@ -46,32 +49,12 @@ struct NewReceptView: View {
                         .foregroundColor(.gray)
                         .frame(width: 200, height: 130, alignment: .leading)
                 }
- 
-                //přidat Picker
                 
-                HStack {
-                    Text("Jedná se o polévku?")
-                    Spacer()
-                    Toggle(isOn: $isSoup) {
-                        Label("Ano", systemImage: "fork.knife.circle")
-                    }
-                    .foregroundColor(.black)
-                    .toggleStyle(.button)
-                    .tint(.mint)
-                    
+                Picker("Typ jídla:", selection: $selectedType) {
+                    Text("Hlavní chod").tag(Recept.ReceptType.mainDish)
+                    Text("Polévka").tag(Recept.ReceptType.soup)
                 }
-                
-                HStack {
-                    Text("Jedná se o hlavní chod?")
-                    Spacer()
-                    Toggle(isOn: $isMainDish) {
-                        Label("Ano", systemImage: "fork.knife.circle")
-                        
-                    }
-                    .foregroundColor(.black)
-                    .toggleStyle(.button)
-                    .tint(.mint)
-                }
+                .pickerStyle(.segmented)
                 
             }
             ._scrollable()

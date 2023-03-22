@@ -10,8 +10,9 @@ import SwiftUI
 
 struct Recept: Identifiable, Codable, Hashable {
     
-    enum ReceptType: String, Codable {
+    enum ReceptType: String, Codable, CaseIterable {
         case soup, mainDish
+        
     }
     
     var id: UUID
@@ -19,7 +20,7 @@ struct Recept: Identifiable, Codable, Hashable {
     var ingredients: String
     var process: String
     
-    private var type: ReceptType
+    var type: ReceptType
     
     private var imageName: String?
     var image: Image {
