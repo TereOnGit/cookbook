@@ -11,7 +11,6 @@
 		D28FC8E629B1E34300AFF33A /* ReceptView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28FC8E529B1E34300AFF33A /* ReceptView.swift */; };
 		D28FC8E829B1EAFF00AFF33A /* Recept.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28FC8E729B1EAFF00AFF33A /* Recept.swift */; };
 		D28FC8EF29B1EF4A00AFF33A /* receptData.json in Resources */ = {isa = PBXBuildFile; fileRef = D28FC8EE29B1EF4A00AFF33A /* receptData.json */; };
-		D28FC8F229B1F60700AFF33A /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28FC8F129B1F60700AFF33A /* ModelData.swift */; };
 		D28FC8F829BE12E900AFF33A /* ReceptBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28FC8F729BE12E900AFF33A /* ReceptBox.swift */; };
 		D28FC8FA29BE18F300AFF33A /* ReceptCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28FC8F929BE18F300AFF33A /* ReceptCollection.swift */; };
 		D2BB52E629B0A82000DCFF6F /* cookbook_SwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BB52E529B0A82000DCFF6F /* cookbook_SwiftUIApp.swift */; };
@@ -28,7 +27,6 @@
 		D28FC8E529B1E34300AFF33A /* ReceptView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceptView.swift; sourceTree = "<group>"; };
 		D28FC8E729B1EAFF00AFF33A /* Recept.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recept.swift; sourceTree = "<group>"; };
 		D28FC8EE29B1EF4A00AFF33A /* receptData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = receptData.json; sourceTree = "<group>"; };
-		D28FC8F129B1F60700AFF33A /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
 		D28FC8F729BE12E900AFF33A /* ReceptBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceptBox.swift; sourceTree = "<group>"; };
 		D28FC8F929BE18F300AFF33A /* ReceptCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceptCollection.swift; sourceTree = "<group>"; };
 		D2BB52E229B0A82000DCFF6F /* cookbook SwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "cookbook SwiftUI.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -57,7 +55,6 @@
 			children = (
 				D2C4FB8D29C37B0800C20248 /* Storage.swift */,
 				D28FC8E729B1EAFF00AFF33A /* Recept.swift */,
-				D28FC8F129B1F60700AFF33A /* ModelData.swift */,
 				D2C4FB6F29C3338300C20248 /* ImagePicker.swift */,
 			);
 			path = Model;
@@ -201,7 +198,6 @@
 				D2BB52E629B0A82000DCFF6F /* cookbook_SwiftUIApp.swift in Sources */,
 				D28FC8F829BE12E900AFF33A /* ReceptBox.swift in Sources */,
 				D2C4FB7029C3338300C20248 /* ImagePicker.swift in Sources */,
-				D28FC8F229B1F60700AFF33A /* ModelData.swift in Sources */,
 				D2C4FB6E29C0A69700C20248 /* NewReceptView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

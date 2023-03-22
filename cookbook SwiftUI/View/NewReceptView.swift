@@ -46,6 +46,8 @@ struct NewReceptView: View {
                         .foregroundColor(.gray)
                         .frame(width: 200, height: 130, alignment: .leading)
                 }
+ 
+                //přidat Picker
                 
                 HStack {
                     Text("Jedná se o polévku?")
@@ -117,7 +119,11 @@ struct NewReceptView: View {
             Divider()
             
             Button("Uložit") {
-                let recept = Recept(name: name, ingredients: ingredients, process: process, isSoup: isSoup, isMainDish: isMainDish
+                let recept = Recept(
+                    name: name,
+                    ingredients: ingredients,
+                    process: process,
+                    type: isMainDish ? . mainDish : .soup
                 )
                 storage.add(newRecept: recept)
             }

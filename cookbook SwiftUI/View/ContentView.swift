@@ -10,7 +10,7 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         
-        ReceptCollection(recepts: recepts)
+        ReceptCollection()
             .environmentObject(Storage())
 }
 }

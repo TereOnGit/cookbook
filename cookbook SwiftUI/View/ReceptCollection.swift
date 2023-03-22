@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ReceptCollection: View {
-    @State var recepts: [Recept] = []
+    @EnvironmentObject var storage: Storage
     
     let columns: [GridItem] = [
         GridItem(.flexible(), alignment: .top),
@@ -19,7 +19,7 @@ struct ReceptCollection: View {
         NavigationView {
             ScrollView(.vertical) {
                 LazyVGrid(columns: columns, content: {
-                    ForEach(recepts) { recept in
+                    ForEach(storage.recepts) { recept in
                         NavigationLink(destination: {
                             ReceptView(recept: recept)
                         }, label: {
@@ -44,6 +44,7 @@ struct ReceptCollection: View {
 
 struct ReceptCollection_Previews: PreviewProvider {
     static var previews: some View {
-        ReceptCollection(recepts: recepts)
+        ReceptCollection()
+            .environmentObject(Storage())
     }
 }

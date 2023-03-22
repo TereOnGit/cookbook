@@ -37,8 +37,8 @@ struct ReceptBox: View {
 struct ReceptBox_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            ReceptBox(recept: recepts[0])
-            ReceptBox(recept: recepts[1])
+            ReceptBox(recept: .mock1)
+            ReceptBox(recept: .mock1)
         }
         .previewLayout(.fixed(width: 300, height: 300))
     }

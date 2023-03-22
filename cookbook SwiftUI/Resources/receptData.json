@@ -1,69 +1,62 @@
 [
     {
-        "id": 1,
+        "id": "52f75989-0e6d-4ee5-90d4-de6ad1159ace",
         "name": "Kuře na smetaně",
-        "soup": false,
-        "mainDish": true,
+        "type": "mainDish",
         "ingredients": "Slanina, cibule, kuřecí maso, paprika, nové koření, bobkový list, černý pepř (kuličky), smetana na šlehání",
         "process": "Osmahnout slaninu s cibulkou, na tom opéct osolené a opaprikované kuře, zalít vodou a přidat cca 3 kuličky nového koření, pár kuličer celého černého pepře, může být i bobkový list. Jakmile je kuře měkké, vyndá se a vykostí. Do omáčky se mezitím vlije smetana s rozmíchanou lžící mouky a zavaří se.",
         "imageName": "kureNaSmetane"
     },
     
     {
-        "id": 2,
+        "id": "d77c91e9-d4b4-4a92-b242-dcf23f31bb0e",
         "name": "Čínská směs",
-        "soup": false,
-        "mainDish": true,
+        "type": "mainDish",
         "ingredients": "Kuřecí maso, zázvor, vejce, sójová omáčka, škrob, pepř, pórek",
         "process": "Kousky kuřecího masa marinujeme ve směsi sójové omáčky, vajíčka, škrobu, zázvoru a pepře, následně opečeme na pánvi a přidáme pórek.",
         "imageName": "cina"
     },
     
     {
-        "id": 3,
+        "id": "533c19ec-f6f1-46e9-b079-306c5127d723",
         "name": "Smetanovo-žampiónová omáčka",
-        "soup": false,
-        "mainDish": true,
+        "type": "mainDish",
         "ingredients": "Cibule, česnek, žampióny, klobáska, hladká mouka, smetana na vaření, bazalka",
         "process": "Opečeme cibuli, česnek a žampióny, přidáme klobásku a zasypeme moukou. Zalijeme smetanou a vaříme doměkka. Na konec přidáme bazalku.",
         "imageName": "smetanaZampiony"
     },
     
     {
-        "id": 4,
+        "id": "501788eb-67cb-45b9-a547-0440c6ce7b24",
         "name": "Palačinky",
-        "soup": false,
-        "mainDish": true,
+        "type": "mainDish",
         "ingredients": "Vejce, mouka, mléko, špetka soli",
         "process": "Smícháme jedno vejce s cca 8 lžícemi mouky, postupně vešhleháme mléko a přidáme špetku soli. Opékáme na pánvi.",
         "imageName": "palacinky"
     },
     
     {
-        "id": 5,
+        "id": "71ca7c47-b2e4-4efd-9b58-41233e462178",
         "name": "Bramborové placky",
-        "soup": false,
-        "mainDish": true,
+        "type": "mainDish",
         "ingredients": "Brambory, sůl, pepř, česnek, majoránka, vejce, hladká mouka, mléko",
         "process": "Nastrouháme brambory, osolíme, opepříme, přidáme utřený česnek, majoránku a jedno vejce. Zasypeme moukou a naředíme mlékem. Opékáme na pánvi.",
         "imageName": "bramboraky"
     },
     
     {
-        "id": 6,
+        "id": "e637a1e3-4ab2-44eb-95cb-2030499ff58b",
         "name": "Španělský ptáček",
-        "soup": false,
-        "mainDish": true,
+        "type": "mainDish",
         "ingredients": "Hovězí roštěná, hořčice, slanina, párky, cibule, vejce, kyselé okurky, pepř, sůl, hladká mouka",
         "process": "Naklepeme plátky roštěné, namažeme trochou hořčice, položíme slaninu a plátky párků, vajíčka (natvrdo) a okurky. Zamotáme a upevníme nití. Na sádle opečeme trochu cibulky, vložíme ptáčky a opečeme, následně zalijeme vodou a vaříme do měkka.",
         "imageName": "ptacci"
     },
     
     {
-        "id": 7,
+        "id": "d5bae6c3-b128-482b-8732-46e55b3ade63",
         "name": "Segedínský guláš",
-        "soup": false,
-        "mainDish": true,
+        "type": "mainDish",
         "ingredients": "Vepřové kostky, cibule, česnek, sladká paprika, pepř, sůl, smetana na šlehání, kysané zelí",
         "process": "Vepřové kostky osmahneme na sádle a cibuli, přidáme česnek, papriku a sůl. Zalijeme vodou a spolu se zelím a kuličkami pepře vaříme do měkka, nakonec přidáme šlehačku.",
         "imageName": "segedin"

@@ -10,26 +10,37 @@ import SwiftUI
 
 struct Recept: Identifiable, Codable, Hashable {
     
+    enum ReceptType: String, Codable {
+        case soup, mainDish
+    }
+    
     var id: UUID
     var name: String
     var ingredients: String
     var process: String
     
-    private var isSoup: Bool
-    private var isMainDish: Bool
+    private var type: ReceptType
     
-    private var imageName: String = ""
+    private var imageName: String?
     var image: Image {
-        Image(imageName)
+        Image(imageName ?? "image")
     }
     
-    init(id: UUID = .init(), name: String, ingredients: String, process: String, isSoup: Bool, isMainDish: Bool) {
+    init(id: UUID = .init(), name: String, ingredients: String, process: String, type: ReceptType, imageName: String? = nil) {
         self.id = id
         self.name = name
         self.ingredients = ingredients
         self.process = process
-        self.isSoup = isSoup
-        self.isMainDish = isMainDish
-      //  self.imageName = imageName
+        self.type = type
+        self.imageName = imageName
     }
+}
+
+extension Recept {
+    static let mock1 = Recept(
+        name: "Mock recept",
+        ingredients: "Ingredients",
+        process: "Process",
+        type: .mainDish
+    )
 }

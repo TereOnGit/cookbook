@@ -8,7 +8,7 @@
 import Combine
 import Foundation
 
-class Storage: ObservableObject{
+class Storage: ObservableObject {
     @Published var recepts: [Recept] = [] {
         didSet {
             save()
@@ -23,17 +23,16 @@ class Storage: ObservableObject{
     }
     
     func load() {
-        let url = makeURL(forFileNamed: "mojedata.txt")!
-        if fileManager.fileExists(atPath: url.absoluteString) {
-            do {
-                let data = try Data(contentsOf: url)
-                let decoder = JSONDecoder()
-                recepts = try decoder.decode([Recept].self, from: data)
-            } catch {
-                recepts = []
-            }
-        } else {
-            recepts = []
+        let url = makeURL(forFileNamed: "mojedata.json")!
+        guard let data = try? Data(contentsOf: url) else {
+            recepts = decodeDefaultData()
+            return
+        }
+        do {
+            let decoder = JSONDecoder()
+            recepts = try decoder.decode([Recept].self, from: data)
+        } catch {
+            recepts = decodeDefaultData()
         }
     }
     
@@ -41,7 +40,7 @@ class Storage: ObservableObject{
         let encoder = JSONEncoder()
         do {
             let data = try encoder.encode(recepts)
-            try save(fileNamed: "mojedata.txt", data: data)
+            try save(fileNamed: "mojedata.json", data: data)
         } catch {}
     }
     
@@ -74,5 +73,28 @@ class Storage: ObservableObject{
             return nil
         }
         return url.appendingPathComponent(fileName)
+    }
+    
+    private func decodeDefaultData() -> [Recept] {
+        let data: Data
+        let filename = "receptData.json"
+        
+        guard let file = Bundle.main.url(forResource: filename, withExtension: nil)
+        else {
+            fatalError("Couldn't find \(filename) in main bundle.")
+        }
+        
+        do {
+            data = try Data(contentsOf: file)
+        } catch {
+            fatalError("Could't load \(filename) from main bundle.")
+        }
+        
+        do {
+            let decoder = JSONDecoder()
+            return try decoder.decode([Recept].self, from: data)
+        } catch {
+            fatalError("Couldn't parse \(filename).")
+        }
     }
 }

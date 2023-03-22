@@ -42,6 +42,6 @@ struct ReceptView: View {
 
 struct ReceptView_Previews: PreviewProvider {
     static var previews: some View {
-        ReceptView(recept: recepts[0])
+        ReceptView(recept: .mock1)
     }
 }
