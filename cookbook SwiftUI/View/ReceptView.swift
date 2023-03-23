@@ -8,10 +8,25 @@
 import SwiftUI
 
 struct ReceptView: View {
+    @EnvironmentObject var storage: Storage
     var recept: Recept
     
     var body: some View {
         ScrollView {
+            HStack {
+                Spacer()
+                Button("Smazat recept") {
+                    storage.delete(recept: recept)
+                }
+                .font(.body)
+                .frame(width: 100, height: 50)
+                .cornerRadius(16)
+                .foregroundColor(.white)
+                .background(.red)
+                .clipShape(RoundedRectangle(cornerRadius: 7))
+                .padding()
+            }
+            
             Spacer()
             FoodImage(image: recept.image)
                 .ignoresSafeArea(edges: .top)

@@ -48,6 +48,12 @@ class Storage: ObservableObject {
         recepts = recepts + [newRecept]
     }
     
+    func delete(recept: Recept) {
+        recepts = recepts.filter() {
+            $0 != recept
+        }
+    }
+    
     enum Error: Swift.Error {
         case fileAlreadyExists
         case invalidDirectory
