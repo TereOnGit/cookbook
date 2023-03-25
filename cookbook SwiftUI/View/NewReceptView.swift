@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct NewReceptView: View {
+    @Environment(\.dismiss) var dismiss
     @EnvironmentObject var storage: Storage
     
     @State private var name: String = "..."
@@ -109,6 +110,7 @@ struct NewReceptView: View {
                     type: isMainDish ? . mainDish : .soup
                 )
                 storage.add(newRecept: recept)
+                dismiss()
             }
                 .font(.title)
                 .frame(maxWidth: .infinity)

@@ -11,12 +11,22 @@ struct ReceptView: View {
     @EnvironmentObject var storage: Storage
     var recept: Recept
     
+    @State private var showAlert = false
+    
     var body: some View {
         ScrollView {
             HStack {
                 Spacer()
                 Button("Smazat recept") {
-                    storage.delete(recept: recept)
+                    showAlert = true
+                }
+                .alert("Opravdu chcete smažat navždy?", isPresented: $showAlert) {
+                    Button("Ano, smazat") {
+                        storage.delete(recept: recept)
+                    }
+                    Button("Zpět") {
+                        showAlert = false
+                    }
                 }
                 .font(.body)
                 .frame(width: 100, height: 50)
