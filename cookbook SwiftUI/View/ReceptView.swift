@@ -17,9 +17,11 @@ struct ReceptView: View {
         ScrollView {
             HStack {
                 Spacer()
-                Button("Smazat recept") {
-                    showAlert = true
+                Button(action: {
+                    showAlert = true})
+                {Image(systemName: "xmark.bin.fill")
                 }
+                .foregroundColor(.white)
                 .alert("Opravdu chcete smažat navždy?", isPresented: $showAlert) {
                     Button("Ano, smazat") {
                         storage.delete(recept: recept)
@@ -28,10 +30,8 @@ struct ReceptView: View {
                         showAlert = false
                     }
                 }
-                .font(.body)
-                .frame(width: 100, height: 50)
+                .frame(width: 50, height: 50)
                 .cornerRadius(16)
-                .foregroundColor(.white)
                 .background(.red)
                 .clipShape(RoundedRectangle(cornerRadius: 7))
                 .padding()
