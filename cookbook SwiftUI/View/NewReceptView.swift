@@ -15,7 +15,7 @@ struct NewReceptView: View {
     @State private var ingredients: String = "..."
     @State private var process: String = "..."
     
-    @State private var image = UIImage()
+    @State private var image: UIImage?
     @State private var showSheet = false
     @State var isSoup = false
     @State var isMainDish = false
@@ -52,8 +52,9 @@ struct NewReceptView: View {
                 }
                 
                 Picker("Typ jídla:", selection: $selectedType) {
-                    Text("Hlavní chod").tag(Recept.ReceptType.mainDish)
-                    Text("Polévka").tag(Recept.ReceptType.soup)
+                    ForEach(Recept.ReceptType.allCases) { type in
+                        Text(type.localized).tag(type)
+                    }
                 }
                 .pickerStyle(.segmented)
                 
@@ -64,23 +65,41 @@ struct NewReceptView: View {
             Divider()
             
             HStack{
-                Image(uiImage: self.image)
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .cornerRadius(50)
-                    .padding(.all, 4)
-                    .frame(width: 100, height: 70)
-                    .background(Color.black.opacity(0.1))
-                    .aspectRatio(contentMode: .fill)
-                    .clipShape(Circle())
-                    .overlay {
-                        Circle().stroke(.white, lineWidth: 4)
-                    }
-                    .shadow(radius: 7)
-                    .padding(8)
-                    .onTapGesture {
-                        showSheet = true
-                    }
+                if let image = image {
+                    Image(uiImage: image)
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .cornerRadius(50)
+                        .padding(.all, 4)
+                        .frame(width: 100, height: 70)
+                        .background(Color.black.opacity(0.1))
+                        .aspectRatio(contentMode: .fill)
+                        .clipShape(Circle())
+                        .overlay {
+                            Circle().stroke(.white, lineWidth: 4)
+                        }
+                        .shadow(radius: 7)
+                        .padding(8)
+                        .onTapGesture {
+                            showSheet = true
+                        }
+                } else {
+                    Color.white
+                        .cornerRadius(50)
+                        .frame(width: 100, height: 70)
+                        .background(Color.black.opacity(0.1))
+                        .aspectRatio(contentMode: .fill)
+                        .clipShape(Circle())
+                        .overlay {
+                            Circle().stroke(.white, lineWidth: 4)
+                        }
+                        .shadow(radius: 7)
+                        .padding(8)
+                        .onTapGesture {
+                            showSheet = true
+                        }
+                }
+            
                 
                 Text("Vybrat fotku z galerie")
                     .font(.title2)
@@ -109,7 +128,7 @@ struct NewReceptView: View {
                     process: process,
                     type: isMainDish ? . mainDish : .soup
                 )
-                storage.add(newRecept: recept)
+                storage.add(newRecept: recept, image: image)
                 dismiss()
             }
                 .font(.title)
@@ -133,4 +152,16 @@ struct NewReceptView_Previews: PreviewProvider {
     static var previews: some View {
         NewReceptView()
     }
+}
+
+extension Recept.ReceptType {
+    var localized: String {
+        switch self {
+        case .mainDish: return "Hlavní chod"
+        case .soup: return "Polévka"
+        }
+    }
+}
+extension Recept.ReceptType: Identifiable {
+    var id: String { self.rawValue }
 }

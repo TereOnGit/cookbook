@@ -8,11 +8,10 @@
 import SwiftUI
 
 struct FoodImage: View {
-    var image: Image
+    var image: AsyncImage<Image>
     
     var body: some View {
         image
-            .resizable()
             .aspectRatio(contentMode: .fill)
             .frame(width: 300, height: 300)
                 .clipShape(Circle())
@@ -25,6 +24,8 @@ struct FoodImage: View {
 
 struct FoodImage_Previews: PreviewProvider {
     static var previews: some View {
-        FoodImage(image: Image("kureNaSmetane"))
+        FoodImage(image: AsyncImage(url: nil) { _ in
+            Image("kureNaSmetane")
+        })
     }
 }

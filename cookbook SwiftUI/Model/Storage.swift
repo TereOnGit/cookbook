@@ -7,11 +7,13 @@
 
 import Combine
 import Foundation
+import UIKit
 
 class Storage: ObservableObject {
     @Published var recepts: [Recept] = [] {
+        // Zavola se po tom, co se do proměnné nastaví nová hodnota.
         didSet {
-            save()
+            try? save()
         }
     }
     
@@ -36,21 +38,29 @@ class Storage: ObservableObject {
         }
     }
     
-    func save() {
+    func save() throws {
         let encoder = JSONEncoder()
-        do {
-            let data = try encoder.encode(recepts)
-            try save(fileNamed: "mojedata.json", data: data)
-        } catch {}
+        let data = try encoder.encode(recepts)
+        try save(fileNamed: "mojedata.json", data: data)
     }
     
-    func add(newRecept: Recept) {
+    func add(newRecept: Recept, image: UIImage? = nil) {
+        if let image = image {
+            let imageUrl = makeImageUrl(for: newRecept)!
+            let data = image.jpegData(compressionQuality: 0.9)!
+            try? data.write(to: imageUrl)
+        }
         recepts = recepts + [newRecept]
     }
     
     func delete(recept: Recept) {
         recepts = recepts.filter() {
             $0 != recept
+        }
+        do {
+            try fileManager.removeItem(at: makeImageUrl(for: recept)!)
+        } catch {
+            print(error)
         }
     }
     
@@ -67,14 +77,14 @@ class Storage: ObservableObject {
         if fileManager.fileExists(atPath: url.absoluteString) {
             throw Error.fileAlreadyExists
         }
-        do {
-            try data.write(to: url)
-        } catch {
-            debugPrint(error)
-            throw Error.writtingFailed
-        }
+        try data.write(to: url)
     }
-    private func makeURL(forFileNamed fileName: String) -> URL? {
+    
+    func makeImageUrl(for recept: Recept) -> URL? {
+         makeURL(forFileNamed: recept.id.uuidString + ".jpg")
+    }
+    
+    func makeURL(forFileNamed fileName: String) -> URL? {
         guard let url = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first else {
             return nil
         }

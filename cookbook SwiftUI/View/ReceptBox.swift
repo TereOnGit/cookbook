@@ -13,7 +13,6 @@ struct ReceptBox: View {
     var body: some View {
         VStack {
             recept.image
-                .resizable()
                 .aspectRatio(contentMode: .fill)
                 .frame(width: 180, height: 150)
                 .clipShape(RoundedRectangle(cornerRadius: 5))

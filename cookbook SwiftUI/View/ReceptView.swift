@@ -15,29 +15,6 @@ struct ReceptView: View {
     
     var body: some View {
         ScrollView {
-            HStack {
-                Spacer()
-                Button(action: {
-                    showAlert = true})
-                {Image(systemName: "xmark.bin.fill")
-                }
-                .foregroundColor(.white)
-                .alert("Opravdu chcete smažat navždy?", isPresented: $showAlert) {
-                    Button("Ano, smazat") {
-                        storage.delete(recept: recept)
-                    }
-                    Button("Zpět") {
-                        showAlert = false
-                    }
-                }
-                .frame(width: 50, height: 50)
-                .cornerRadius(16)
-                .background(.red)
-                .clipShape(RoundedRectangle(cornerRadius: 7))
-                .padding()
-            }
-            
-            Spacer()
             FoodImage(image: recept.image)
                 .ignoresSafeArea(edges: .top)
             Text(recept.name)
@@ -61,6 +38,22 @@ struct ReceptView: View {
                 Spacer()
             }
             .padding()
+        }
+        .alert("Opravdu chcete smažat navždy?", isPresented: $showAlert) {
+            Button("Ano, smazat") {
+                storage.delete(recept: recept)
+            }
+            Button("Zpět") {}
+        }
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button {
+                    showAlert = true
+                } label: {
+                    Image(systemName: "xmark.bin.fill")
+                }
+                .tint(.red)
+            }
         }
     }
 }
