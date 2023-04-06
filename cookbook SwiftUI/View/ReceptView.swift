@@ -12,6 +12,7 @@ struct ReceptView: View {
     var recept: Recept
     
     @State private var showAlert = false
+    @State private var sheetIsActive = false
     
     var body: some View {
         ScrollView {
@@ -46,11 +47,17 @@ struct ReceptView: View {
             Button("Zpět") {}
         }
         .toolbar {
-            ToolbarItem(placement: .navigationBarTrailing) {
+            ToolbarItemGroup(placement: .navigationBarTrailing) {
+                Button {
+                    sheetIsActive = true
+                } label: {
+                    Image(systemName: "pencil.circle.fill")
+                }
+                .tint(.green)
                 Button {
                     showAlert = true
                 } label: {
-                    Image(systemName: "xmark.bin.fill")
+                    Image(systemName: "trash.circle.fill")
                 }
                 .tint(.red)
             }

@@ -11,9 +11,9 @@ struct NewReceptView: View {
     @Environment(\.dismiss) var dismiss
     @EnvironmentObject var storage: Storage
     
-    @State private var name: String = "..."
-    @State private var ingredients: String = "..."
-    @State private var process: String = "..."
+    @State private var name = String()
+    @State private var ingredients = String()
+    @State private var process = String()
     
     @State private var image: UIImage?
     @State private var showSheet = false

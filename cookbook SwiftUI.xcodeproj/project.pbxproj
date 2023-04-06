@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D20E8B6329B0E4DC00509936 /* FoodImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20E8B6229B0E4DC00509936 /* FoodImage.swift */; };
+		D28A189E29DEC9BD0007CA7E /* EditReceptView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28A189D29DEC9BD0007CA7E /* EditReceptView.swift */; };
 		D28FC8E629B1E34300AFF33A /* ReceptView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28FC8E529B1E34300AFF33A /* ReceptView.swift */; };
 		D28FC8E829B1EAFF00AFF33A /* Recept.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28FC8E729B1EAFF00AFF33A /* Recept.swift */; };
 		D28FC8EF29B1EF4A00AFF33A /* receptData.json in Resources */ = {isa = PBXBuildFile; fileRef = D28FC8EE29B1EF4A00AFF33A /* receptData.json */; };
@@ -24,6 +25,7 @@
 
 /* Begin PBXFileReference section */
 		D20E8B6229B0E4DC00509936 /* FoodImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodImage.swift; sourceTree = "<group>"; };
+		D28A189D29DEC9BD0007CA7E /* EditReceptView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditReceptView.swift; sourceTree = "<group>"; };
 		D28FC8E529B1E34300AFF33A /* ReceptView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceptView.swift; sourceTree = "<group>"; };
 		D28FC8E729B1EAFF00AFF33A /* Recept.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recept.swift; sourceTree = "<group>"; };
 		D28FC8EE29B1EF4A00AFF33A /* receptData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = receptData.json; sourceTree = "<group>"; };
@@ -68,6 +70,7 @@
 				D2C4FB6D29C0A69700C20248 /* NewReceptView.swift */,
 				D28FC8F729BE12E900AFF33A /* ReceptBox.swift */,
 				D28FC8E529B1E34300AFF33A /* ReceptView.swift */,
+				D28A189D29DEC9BD0007CA7E /* EditReceptView.swift */,
 				D20E8B6229B0E4DC00509936 /* FoodImage.swift */,
 			);
 			path = View;
@@ -194,6 +197,7 @@
 				D28FC8E629B1E34300AFF33A /* ReceptView.swift in Sources */,
 				D28FC8FA29BE18F300AFF33A /* ReceptCollection.swift in Sources */,
 				D20E8B6329B0E4DC00509936 /* FoodImage.swift in Sources */,
+				D28A189E29DEC9BD0007CA7E /* EditReceptView.swift in Sources */,
 				D28FC8E829B1EAFF00AFF33A /* Recept.swift in Sources */,
 				D2BB52E629B0A82000DCFF6F /* cookbook_SwiftUIApp.swift in Sources */,
 				D28FC8F829BE12E900AFF33A /* ReceptBox.swift in Sources */,
